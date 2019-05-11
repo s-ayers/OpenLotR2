@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+<body>
+
+<script>
+(function(){
+class Splash extends Phaser.Scene {
+
+    constructor ()
+    {
+        super({ key: 'Splash', active: true });
+    }
+
+    preload ()
+    {
+        this.load.image('logo', 'L2.png');
+    }
+
+    create ()
+    {
+        this.add.image(320, 240, 'logo');
+        // this.add.image(0, 0, 'logo').setOrigin(0);
+
+        this.input.once('pointerdown', function () {
+            // this.scene.add('MainMenu', MainMenu, true);
+            this.scene.start('MainMenu');
+            // this.scene.transition({
+            //     target: 'MainMenu',
+            //     duration: 3000
+            // });
+        }, this);
+
+        // this.scene.pause();
+    }
+}
+
+class MainMenu extends Phaser.Scene {
+
+    constructor ()
+    {
+        super({ key: 'MainMenu', active: false });
+
+    }
+
+    preload ()
+    {
+        this.lineBottomColor = '0xB8B8B8';
+        this.lineTopColor = '0x4C4C4C';
+
+        this.load.image('MainBackground', 'images/backgrounds/Main.png');
+        this.load.atlas('Panels2Atlas', 'images/system/panels2.png', 'images/system/panels2.json');
+
+    }
+
+    create ()
+    {
+        this.add.image(0, 0, 'MainBackground').setOrigin(0);
+        this.panel = this.add.tileSprite(180, 16, 0, 0, 'Panels2Atlas', 'stonePanel').setOrigin(0);
+
+        this.largeFont = {
+            font: '32px Gothic',
+            stroke: '#000000',
+            strokeThickness: 0,
+            fill: '#000000',
+            align: 'center'
+        };
+        this.smallFont = {
+            font: '20px Gothic',
+            stroke: '#000000',
+            strokeThickness: 0,
+            fill: '#000000',
+            align: 'center'
+        };
+
+        this.SingleOrMultiPlayer();
+        // this.SelectShield();
+
+
+    }
+
+    SingleOrMultiPlayer() {
+        this.panel.displayHeight = 229;
+        this.panel.displayWidth = 312;
+        this.panel.x = 164;
+        this.panel.y = 16;
+
+        var localText = [];
+        var that = this;
+
+        // Single Player box
+        this.drawBox(224, 92, localText);
+        // localText[localText.length] = this.add.line(0, 0, 226, 92, 415, 92, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 415, 93, 415, 114, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 224, 92, 224, 115, this.lineBottomColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 224, 115, 415, 115, this.lineBottomColor).setOrigin(0);
+
+        //Multi player
+        this.drawBox(224, 128, localText);
+        // localText[localText.length] = this.add.line(0, 0, 226, 128, 415, 128, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 415, 128, 415, 150, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 224, 128, 224, 151, this.lineBottomColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 224, 151, 415, 151, this.lineBottomColor).setOrigin(0);
+
+
+        // Exit Game
+        this.drawBox(224, 199, localText);
+        // localText[localText.length] = this.add.line(0, 0, 226, 199, 415, 199, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 415, 199, 415, 222, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 225, 199, 225, 223, this.lineBottomColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 225, 223, 415, 223, this.lineBottomColor).setOrigin(0);
+
+
+        localText[localText.length] = this.add.text(164+28, 29, 'Lords of the Realm 2', this.largeFont).setOrigin(0);
+        localText[localText.length] = this.add.text(164+72, 58, '"The seige is on"', this.smallFont).setOrigin(0);
+
+       localText[localText.length] = this.add.text(264, 93, 'Single Player', this.smallFont ).setInteractive().on('pointerdown', function(pointer, localX, localY, event) {
+                for(var x in localText) {
+                    localText[x].destroy();
+                }
+                that.SinglePlayer();
+            });
+
+    }
+
+    // localText[localText.length] = this.add.line(0, 0, 226, 92, 415, 92, this.lineTopColor).setOrigin(0);
+    // localText[localText.length] = this.add.line(0, 0, 415, 93, 415, 114, this.lineTopColor).setOrigin(0);
+    // localText[localText.length] = this.add.line(0, 0, 225, 92, 225, 115, this.lineBottomColor).setOrigin(0);
+    // localText[localText.length] = this.add.line(0, 0, 225, 115, 415, 115, this.lineBottomColor).setOrigin(0);
+
+
+    drawBox(x, y, local) {
+        local[local.length] = this.add.line(0, 0, x+1, y, x+191, y, this.lineTopColor).setOrigin(0);
+        local[local.length] = this.add.line(0, 0, x+191, y+1, x+191, y+23, this.lineTopColor).setOrigin(0);
+        local[local.length] = this.add.line(0, 0, x, y, x, y+24, this.lineBottomColor).setOrigin(0);
+        local[local.length] = this.add.line(0, 0, x, y+24, x+191, y+24, this.lineBottomColor).setOrigin(0);
+    }
+
+    SelectShield() {
+        // this.panel.angle = 90;
+        this.panel.x = 84;
+        this.panel.y = 16;
+        this.panel.displayHeight = 250;
+        this.panel.displayWidth = 490;
+
+        var localText = [],
+            shields = {},
+            that = this;
+
+        // Original
+        this.drawBox(110, 215, localText);
+        // Seige
+        this.drawBox(336, 215, localText);
+
+        localText[localText.length] = this.add.text(140, 40, 'Choose your title and shield.', this.largeFont).setOrigin(0);
+
+        localText[localText.length] = this.add.text(185, 215, 'Back', this.smallFont).setOrigin(0).
+            setInteractive().on('pointerdown', function(pointer, localX, localY, event) {
+                for(var x in localText) {
+                    localText[x].destroy();
+                }
+                that.SelectShield();
+            });
+
+        localText[localText.length] = this.add.text(395, 215, 'Continue', this.smallFont).setOrigin(0).
+            setInteractive().on('pointerdown', function(pointer, localX, localY, event) {
+                for(var x in localText) {
+                    localText[x].destroy();
+                }
+                that.scene.start('MainScene');
+            });
+
+
+        this.add.tileSprite(320, 100, 0, 0, 'Panels2Atlas', 'stoneInput');
+
+        shields.red = this.add.tileSprite(150, 140+30, 0, 0, 'Panels2Atlas', 'redActive');
+        shields.yellow = this.add.tileSprite(235, 140+30, 0, 0, 'Panels2Atlas', 'yellowActive');
+        shields.black = this.add.tileSprite(288+30, 140+30, 0, 0, 'Panels2Atlas', 'blackActive');
+        shields.purple = this.add.tileSprite(288+120, 140+30, 0, 0, 'Panels2Atlas', 'purpleActive');
+        shields.blue = this.add.tileSprite(288+210, 140+30, 0, 0, 'Panels2Atlas', 'blueActive');
+    }
+
+    OriginalOrSeige() {
+
+        this.panel.x = 68;
+        this.panel.y = 56;
+        this.panel.displayHeight = 117;
+        this.panel.displayWidth = 504;
+
+        var localText = [],
+            that = this;
+
+        // Original
+        this.drawBox(110, 116, localText);
+        // Seige
+        this.drawBox(366, 116, localText);
+
+
+        localText[localText.length] = this.add.text(98, 56+10, 'Expansion pack installed, choose:-', this.largeFont).setOrigin(0);
+
+        localText[localText.length] = this.add.text(110, 120, 'Orginal campaign', this.smallFont).setOrigin(0).
+            setInteractive().on('pointerdown', function(pointer, localX, localY, event) {
+                for(var x in localText) {
+                    localText[x].destroy();
+                }
+                that.SelectShield();
+            });;
+        localText[localText.length] = this.add.text(365, 120, 'The new campaign', this.smallFont).setOrigin(0).
+            setInteractive().on('pointerdown', function(pointer, localX, localY, event) {
+                for(var x in localText) {
+                    localText[x].destroy();
+                }
+                that.SelectShield();
+            });;
+    }
+
+    SinglePlayer() {
+
+        this.panel.x = 180;
+        this.panel.y = 26;
+        this.panel.displayHeight = 277;
+        this.panel.displayWidth = 280;
+
+    var localText = [],
+        that = this;
+
+        // Play now
+        this.drawBox(224, 92, localText);
+        //Load a game
+        this.drawBox(224, 127, localText);
+        // Skirmish
+        this.drawBox(224, 163, localText);
+        // Customer game
+        this.drawBox(224, 199, localText);
+        // back
+        this.drawBox(224, 235, localText);
+
+
+        localText[localText.length] = this.add.text(250, 45, 'Your Options', this.largeFont);
+
+        localText[localText.length] = this.add.text(273, 92, 'Play Now!', this.smallFont ).
+            setInteractive().on('pointerdown', function(pointer, localX, localY, event) {
+                for(var x in localText) {
+                    localText[x].destroy();
+                }
+                that.OriginalOrSeige();
+            });
+
+        localText[localText.length] = this.add.text(266, 127, 'Load a game', this.smallFont );
+
+        localText[localText.length] = this.add.text(280, 163, 'Skirmish!', this.smallFont );
+
+        localText[localText.length] = this.add.text(264, 199, 'Custom game', this.smallFont ).setInteractive().on('pointerdown', function(pointer, localX, localY, event) {
+                this.scene.scene.start('CustomGame');
+            });
+
+
+
+        localText[localText.length] = this.add.text(295, 235, 'Back', this.smallFont ).style.setAlign('center');
+    }
+
+    MultiPlayer() {
+
+    }
+}
+
+class CustomGame extends Phaser.Scene {
+
+    constructor ()
+    {
+        super({ key: 'CustomGame', active: false });
+
+    }
+
+    preload ()
+    {
+        this.load.image('CustomGameBackground', 'images/scenes/CustomGame/Background.png');
+    }
+
+    create ()
+    {
+        this.add.image(320, 240, 'CustomGameBackground');
+
+
+    }
+}
+
+class Armoury extends Phaser.Scene {
+
+    constructor ()
+    {
+        super({ key: 'Armoury', active: false });
+        this.color = 'yellow';
+
+
+    }
+
+    preload ()
+    {
+        this.load.image('ArmouryBackground', 'images/backgrounds/Armoury.png');
+        this.load.atlas('ArmsAtlas', 'images/scenes/Armoury/arms.' + this.color + '.png', 'images/scenes/Armoury/arms.json');
+    }
+
+    create ()
+    {
+        this.add.image(320, 240, 'ArmouryBackground');
+
+
+
+
+        this.add.tileSprite(48, 438, 0, 0, 'ArmsAtlas', 'peasant');
+
+        this.add.tileSprite(107, 266, 0, 0, 'ArmsAtlas', 'crossbow');
+        this.add.tileSprite(48+76, 438, 0, 0, 'ArmsAtlas', 'crossbowman');
+
+        this.add.tileSprite(185, 282, 0, 0, 'ArmsAtlas', 'mace');
+        this.add.tileSprite(48+2*76, 438, 0, 0, 'ArmsAtlas', 'maceman');
+
+        this.add.tileSprite(244, 252, 0, 0, 'ArmsAtlas', 'pike');
+        this.add.tileSprite(48+3*76, 438, 0, 0, 'ArmsAtlas', 'pikeman');
+
+        this.add.tileSprite(322, 270, 0, 0, 'ArmsAtlas', 'mail');
+        this.add.tileSprite(48+4*76, 438, 0, 0, 'ArmsAtlas', 'horseman');
+
+        this.add.tileSprite(48+5*76, 280, 0, 0, 'ArmsAtlas', 'bow');
+        this.add.tileSprite(48+5*76, 438, 0, 0, 'ArmsAtlas', 'bowman');
+
+        this.add.tileSprite(530, 280, 0, 0, 'ArmsAtlas', 'sword');
+        this.add.tileSprite(48+6*76, 438, 0, 0, 'ArmsAtlas', 'swordman');
+
+        // this.add.tileSprite(48, 200, 0, 0, 'ArmsAtlas', 'peasantIcon');
+        // this.add.tileSprite(107, 200, 0, 0, 'ArmsAtlas', 'crossbowIcon');
+        // this.add.tileSprite(185, 200, 0, 0, 'ArmsAtlas', 'maceIcon');
+        // this.add.tileSprite(244, 200, 0, 0, 'ArmsAtlas', 'pikeIcon');
+        // this.add.tileSprite(322, 200, 0, 0, 'ArmsAtlas', 'mailIcon');
+        // this.add.tileSprite(48+5*76, 200, 0, 0, 'ArmsAtlas', 'bowIcon');
+        // this.add.tileSprite(530, 200, 0, 0, 'ArmsAtlas', 'swordIcon');
+
+        this.scene.pause();
+    }
+}
+
+class Merchant extends Phaser.Scene {
+
+    constructor ()
+    {
+        super({ key: 'Merchant', active: true });
+    }
+
+    preload ()
+    {
+        this.load.image('MerchantBackground', 'images/backgrounds/Merchant.png');
+    }
+
+    create ()
+    {
+        this.add.image(320, 240, 'MerchantBackground');
+    }
+}
+
+class GreatestNoble extends Phaser.Scene {
+
+    constructor ()
+    {
+        super({ key: 'GreatestNoble', active: true });
+    }
+
+    preload ()
+    {
+        this.load.image('GreatestNobleBackground', 'images/backgrounds/GreatestNoble.png');
+    }
+
+    create ()
+    {
+        this.add.image(320, 240, 'GreatestNobleBackground');
+    }
+}
+
+class CastleBuild extends Phaser.Scene {
+
+    constructor ()
+    {
+        super({ key: 'CastleBuild', active: true });
+    }
+
+    preload ()
+    {
+        this.load.image('CastleBuildBackground', 'images/scenes/CastleBuild/Background.png');
+        this.load.atlas('CastleBuildAtlasPics', 'images/scenes/CastleBuild/pics.png', 'images/scenes/CastleBuild/pics.json');
+        this.load.atlas('CastleBuildAtlasBits', 'images/scenes/CastleBuild/bits.png', 'images/scenes/CastleBuild/bits.json');
+    }
+
+    create ()
+    {
+        this.add.image(320, 240, 'CastleBuildBackground');
+        this.add.tileSprite(318, 120, 320, 200, 'CastleBuildAtlasPics', 'castle1');
+        this.add.tileSprite(70, 120, 105, 105, 'CastleBuildAtlasBits', 'castle1blueprint');
+
+        this.add.tileSprite(55, 348, 60, 60, 'CastleBuildAtlasBits', 'castle1outline');
+
+        this.add.tileSprite(149, 354, 100, 130, 'CastleBuildAtlasBits', 'castle2outline');
+        this.add.tileSprite(249, 323, 50, 70, 'CastleBuildAtlasBits', 'castle3outline');
+
+        this.add.tileSprite(367, 328, 110, 110, 'CastleBuildAtlasBits', 'castle4outline');
+
+        this.add.tileSprite(537, 345, 150, 120, 'CastleBuildAtlasBits', 'castle5outline');
+
+        this.add.tileSprite(50, 283, 15, 26, 'CastleBuildAtlasBits', 'castleSelect');
+    }
+}
+
+class MainScene extends Phaser.Scene {
+
+    constructor ()
+    {
+        super({ key: 'MainScene', active: false });
+    }
+
+    preload ()
+    {
+
+        this.load.image('England', 'England.map.png');
+        this.load.atlas('MiscCityAtlas', 'images/scenes/MainScene/misc_city.png', 'images/scenes/MainScene/misc_city.json');
+
+    this.load.json('map', 'tests/iso/isometric-grass-and-water.json');
+    this.load.spritesheet('tiles', 'tests/iso/isometric-grass-and-water.png', { frameWidth: 64, frameHeight: 64 });
+
+    }
+
+    create ()
+    {
+        this.cameras.main.setViewport(0, 0, 640, 480).setBounds(0, 0, 7424, 3840).setName('main');;
+
+    // The miniCam is 400px wide, so can display the whole world at a zoom of 0.2
+        this.miniCam = this.cameras.add(485, 30, 124, 124).setZoom(0.035).setName('mini');
+        this.miniCam.setBackgroundColor(0x002244);
+        // this.miniCam.scrollX = 700;
+        // this.miniCam.scrollY = 1000;
+this.miniCam.centerToBounds();
+
+        this.buildMap();
+
+        this.buildPanel();
+
+        this.miniCam.ignore(this.panel);
+
+
+        // this.cameras.main.scrollX = 450;
+        // this.cameras.main.scrollY = 250;
+
+    }
+
+    buildPanel () {
+
+        this.miniMap = this.add.tileSprite(0, 0, 0, 0, 'MiscCityAtlas', 'miniMap').setOrigin(0);
+        this.peoplePane = this.add.tileSprite(0, 132, 0, 0, 'MiscCityAtlas', 'peoplePane').setOrigin(0);
+
+
+
+        this.healthBest = this.add.tileSprite(81, 187, 0, 0, 'MiscCityAtlas', 'healthBest');
+        // this.healthGood = this.add.tileSprite((566-(14/2)), (240-(59/2)), 0, 0, 'MiscCityAtlas', 'healthGood');
+        // this.healthOk = this.add.tileSprite((566-(14/2)), (240-(59/2)), 0, 0, 'MiscCityAtlas', 'healthOk');
+        // this.healthBad = this.add.tileSprite((566-(14/2)), (240-(59/2)), 0, 0, 'MiscCityAtlas', 'healthBad');
+        // this.healthWorst = this.add.tileSprite((566-(14/2)), (240-(59/2)), 0, 0, 'MiscCityAtlas', 'healthWorst');
+
+        this.labourPane = this.add.tileSprite(81, 316, 0, 0, 'MiscCityAtlas', 'labourPane');
+
+        this.labourGauge = this.add.tileSprite(84, (295-(33/2))-24, 0, 0, 'MiscCityAtlas', 'labourGauge');
+        this.labourGaugeLess = this.add.tileSprite(84, (295-(33/2))-24, 0, 0, 'MiscCityAtlas', 'labourGaugeLess');
+
+        this.labourCow = this.add.tileSprite((521-(37/2))-478, (332-(24/2))-24, 0, 0, 'MiscCityAtlas', 'labourCow');
+
+        this.labourCowLess = this.add.tileSprite((521-(37/2))-478, (332-(24/2))-24, 0, 0, 'MiscCityAtlas', 'labourCowLess');
+
+        this.labourCowMore = this.add.tileSprite((521-(37/2))-478, (332-(24/2))-24, 0, 0, 'MiscCityAtlas', 'labourCowMore');
+
+        this.labourWheat = this.add.tileSprite((522-(36/2))-478, (390-(27/2))-24, 0, 0, 'MiscCityAtlas', 'labourWheat');
+
+        this.labourWheatLess = this.add.tileSprite((522-(36/2))-478, (390-(27/2))-24, 0, 0, 'MiscCityAtlas', 'labourWheatLess');
+        this.labourWheatMore = this.add.tileSprite((522-(36/2))-478, (390-(27/2))-24, 0, 0, 'MiscCityAtlas', 'labourWheatMore');
+
+
+
+
+
+        this.labourLumber = this.add.tileSprite((632-(37/2))-478, (331-(22/2))-24, 0, 0, 'MiscCityAtlas', 'labourLumber');
+
+        // this.labourStone = this.add.tileSprite((625-(25/2)), (396-(29/2)), 0, 0, 'MiscCityAtlas', 'labourStone');
+        // this.labourIron = this.add.tileSprite((625-(25/2)), (396-(29/2)), 0, 0, 'MiscCityAtlas', 'labourIron');
+
+        this.labourCastle = this.add.tileSprite((625-(25/2))-478, (396-(29/2))-24, 0, 0, 'MiscCityAtlas', 'labourCastle');
+        this.labourCastleLess = this.add.tileSprite((625-(25/2))-478, (396-(29/2))-24, 0, 0, 'MiscCityAtlas', 'labourCastleLess');
+
+        this.actionButtons = this.add.tileSprite((640-(162/2))-478, (480-(30/2)-20)-24, 0, 0, 'MiscCityAtlas', 'actionButtons');
+
+
+        this.endTurn = this.add.tileSprite(0, (480-24), 0, 0, 'MiscCityAtlas', 'endTurn').setOrigin(0,1);
+// define you region
+// var topLeftQuarter = new Phaser.Rectangle(0,0,game.width/2,game.height/2)//listen for pointers
+// game.input.onDown.add(handlePointerDown)//handle a touch/click
+// handlePointerDown = function(pointer){    //this is the test, contains test for a point belonging to a rect definition
+// var inside = topLeftQuarter.contains(pointer.x,pointer.y)    //do whatever with the result
+//  console.log('pointer is inside region top left quarter', inside)}
+var graphics = this.add.graphics();
+var rect = new Phaser.Geom.Rectangle(930, 550, 32, 32);
+graphics.lineStyle(5, 0);   // color: 0xRRGGBB
+graphics.strokeRectShape(rect);
+
+        this.panel = this.add.container(478, 24, [
+            this.miniMap,
+            this.peoplePane,
+            this.healthBest,
+            this.labourPane,
+            this.labourGauge,
+            this.labourGaugeLess,
+            this.labourCow,
+            this.labourCowLess,
+            this.labourCowMore,
+            this.labourWheat,
+            this.labourWheatLess,
+            this.labourWheatMore,
+            this.labourLumber,
+            this.labourCastle,
+            this.labourCastleLess,
+
+            this.actionButtons,
+            this.endTurn
+            ]).setScrollFactor(0);
+
+        // this.panel.scrollFactor = 0;
+
+    }
+
+    buildMap ()
+    {
+        this.map = this.add.container(0, 24);
+
+        //  Parse the data out of the map
+        var data = this.cache.json.get('map');
+
+        var tilewidth = data.tilewidth;
+        var tileheight = data.tileheight;
+
+        var tileWidthHalf = tilewidth / 2;
+        var tileHeightHalf = tileheight / 2;
+
+        var layer = data.layers[0].data;
+
+        var mapwidth = data.layers[0].width;
+        var mapheight = data.layers[0].height;
+
+        var centerX = mapwidth * tileWidthHalf;
+        var centerY = 16;
+
+        var i = 0;
+        var that = this;
+
+        for (var y = 0; y < mapheight; y++)
+        {
+            for (var x = 0; x < mapwidth; x++)
+            {
+                var id = layer[i] - 1;
+
+                var tx = (x - y) * tileWidthHalf;
+                var ty = (x + y) * tileHeightHalf;
+
+                var tile = this.add.image(centerX + tx, centerY + ty, 'tiles', id);
+
+                tile.depth = centerY + ty;
+                this.map.add(tile);
+
+                i++;
+            }
+        }
+        this.map.setInteractive(new Phaser.Geom.Rectangle(0, 0, 7424, 4000), Phaser.Geom.Rectangle.Contains);
+    this.map.on('pointerdown', function (pointer, localX, localY, event) {
+
+        console.log('x: ' + pointer.x);
+        console.log('y:' + pointer.y);
+        console.log('local-x: ' + localX);
+        console.log('local-y:' + localY);
+        console.log(that.cameras);
+        that.cameras.main.centerOn(localX, localY);
+
+    });
+
+    var england = this.add.image(0, 30, 'England');
+    // .setOrigin(0);
+
+
+    this.map.add(england);
+
+    }
+
+}
+
+
+let config = {
+    type: Phaser.AUTO,
+    width: 640,
+    height: 480,
+    backgroundColor: '#000000',
+    // parent: 'phaser-example',
+    scene: [
+
+            // Splash,
+            MainMenu,
+            // CustomGame,
+            MainScene,
+            Armoury
+            // CastleBuild
+
+        ]
+};
+
+let game = new Phaser.Game(config);
+
+}())
+</script>
+
+</body>
+</html>

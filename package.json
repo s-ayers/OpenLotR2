@@ -1,0 +1,18 @@
+{
+  "name": "openlotr2",
+  "version": "1.0.0",
+  "description": "Open Lords of the Realm 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "phaser",
+    "express"
+  ],
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

@@ -22,4 +22,10 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 node_modules/*
+
+dist/*
+!dist/.gitkeep
+release-builds/*
+!release-builds/.gitkeep
+
 src/www/England.map.png

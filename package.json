@@ -2,8 +2,11 @@
   "name": "openlotr2",
   "version": "1.0.0",
   "description": "Open Lords of the Realm 2",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "electron-builder",
+    "start": "electron src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +16,13 @@
   "author": "",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "io": "^1.0.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "electron": "^5.0.1",
+    "electron-builder": "^20.40.2",
+    "electron-packager": "^13.1.1"
   }
 }

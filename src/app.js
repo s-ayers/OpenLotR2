@@ -1,4 +1,8 @@
 
+
+if (process.versions.hasOwnProperty('electron')) {
+  // Electron specific code
+
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 
@@ -12,7 +16,7 @@ function createWindow () {
     title: "Open LotR2",
     width: 670,
     height: 530,
-    
+
     icon: __dirname + '/www/favicon.ico',
     webPreferences: {
       nodeIntegration: true
@@ -37,7 +41,7 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
@@ -55,26 +59,31 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-// const express = require('express')
-// const app = express()
-// const server = require('http').Server(app);
-// const io = require('socket.io')(server);
-// const port = 3000
+} else {
+
+const express = require('express')
+const app = express()
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+const port = 3000
 
 
-// server.listen(port);
-// app.use( express.static(__dirname  + '\\www', { index: 'index.html' }));
+server.listen(port);
+console.log('Listening on http://localhost:3000');
+app.use( express.static(__dirname  + '\\www', { index: 'index.html' }));
 
-// io.on('connection', function (socket) {
-//     socket.broadcast.emit('user connected');
+io.on('connection', function (socket) {
+    socket.broadcast.emit('user connected');
 
-//     io.emit('this', { will: 'be received by everyone'});
-  
-//     socket.on('private message', function (from, msg) {
-//       console.log('I received a private message by ', from, ' sayinxg ', msg);
-//     });
-  
-//     socket.on('disconnect', function () {
-//       io.emit('user disconnected');
-//     });
-//   });
+    io.emit('this', { will: 'be received by everyone'});
+
+    socket.on('private message', function (from, msg) {
+      console.log('I received a private message by ', from, ' sayinxg ', msg);
+    });
+
+    socket.on('disconnect', function () {
+      io.emit('user disconnected');
+    });
+  });
+
+}

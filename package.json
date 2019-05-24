@@ -2,11 +2,14 @@
   "name": "openlotr2",
   "version": "1.0.0",
   "description": "Open Lords of the Realm 2",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
+    "build": "webpack",
+    "start": "webpack --watch & live-server --port=8085",
     "postinstall": "electron-builder install-app-deps",
     "dist": "electron-builder",
-    "start": "electron src/app.js",
+    "electron": "electron src/app.ts",
+    "server": "node src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -23,6 +26,12 @@
   "devDependencies": {
     "electron": "^5.0.1",
     "electron-builder": "^20.40.2",
-    "electron-packager": "^13.1.1"
+    "electron-packager": "^13.1.1",
+    "live-server": "^1.2.1",
+    "phaser": "^3.17.0",
+    "ts-loader": "^6.0.1",
+    "typescript": "^3.4.5",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
   }
 }

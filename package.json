@@ -19,12 +19,12 @@
   "author": "",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.0",
     "io": "^1.0.0",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
-    "electron": "^5.0.1",
+    "electron": "^5.0.2",
     "electron-builder": "^20.40.2",
     "electron-packager": "^13.1.1",
     "live-server": "^1.2.1",

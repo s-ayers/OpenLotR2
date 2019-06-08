@@ -1,5 +1,5 @@
 const path = require('path');
-const Webpack = require( "webpack" );
+const Webpack = require("webpack");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
@@ -17,7 +17,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'openlotr2.bundle.js'
+    filename: 'openlotr2.bundle.js',
+    publicPath: '/'
   },
 
   module: {

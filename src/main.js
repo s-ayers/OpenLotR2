@@ -31,7 +31,7 @@ if (process.versions.hasOwnProperty('electron')) {
     })
   }
 
-  
+
   // Modules to control application life and create native browser window
   const { app, BrowserWindow } = require('electron')
 
@@ -63,17 +63,30 @@ if (process.versions.hasOwnProperty('electron')) {
   // code. You can also put them in separate files and require them here.
 
 } else {
-
+  players = {};
   const express = require('express')
   const app = express()
   const server = require('http').Server(app);
   const io = require('socket.io')(server, { wsEngine: 'ws' });
 
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+
+  const wpConfig = require('../webpack.config.js');
+  const compiler = webpack(wpConfig);
+
+  // Tell express to use the webpack-dev-middleware and use the webpack.config.js
+  // configuration file as a base.
+  app.use(webpackDevMiddleware(compiler, {
+    publicPath: wpConfig.output.publicPath
+  }));
+
+
 
   const config = require(`${__dirname}/openlotr2.json`);
 
 
-console.log(config);
+  console.log(config);
   const port = config.port || 3000;
 
 
@@ -81,20 +94,32 @@ console.log(config);
   console.log('Listening on http://localhost:' + port);
   // app.use(express.static(__dirname + '/www', { index: 'index.html' }));
   app.use('/assets', express.static(__dirname + '/www/assets'));
-  app.use( express.static('build'));
+  // app.use( express.static('build'));
 
   io.on('connection', function (socket) {
-    socket.broadcast.emit('user connected');
+    console.log('a user connected');
+    // create a new player and add it to our players object
+    players[socket.id] = {
+      rotation: 0,
+      x: Math.floor(Math.random() * 700) + 50,
+      y: Math.floor(Math.random() * 500) + 50,
+      playerId: socket.id,
+      team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue'
+    };
+    // send the players object to the new player
+    socket.emit('currentPlayers', players);
+    // update all other players of the new player
+    socket.broadcast.emit('newPlayer', players[socket.id]);
 
-    io.emit('this', { will: 'be received by everyone' });
-
-    socket.on('private message', function (from, msg) {
-      console.log('I received a private message by ', from, ' sayinxg ', msg);
-    });
-
+    // when a player disconnects, remove them from our players object
     socket.on('disconnect', function () {
-      io.emit('user disconnected');
+      console.log('user disconnected');
+      // remove this player from our players object
+      delete players[socket.id];
+      // emit a message to all players to remove this player
+      io.emit('disconnect', socket.id);
     });
+
   });
 
 }

@@ -68,20 +68,15 @@ export default class Loader extends Phaser.Scene {
         assetText.destroy();
     });
 
+    
     this.load.image('ArmouryBackground', 'themes/classic/scenes/armoury/background.png');
     this.load.atlas('blackArms', 'themes/classic/scenes/armoury/black/arms.png', 'themes/classic/scenes/armoury/arms.json');
     this.load.atlas('blueArms', 'themes/classic/scenes/armoury/blue/arms.png', 'themes/classic/scenes/armoury/arms.json');
     this.load.atlas('purpleArms', 'themes/classic/scenes/armoury/purple/arms.png', 'themes/classic/scenes/armoury/arms.json');
     this.load.atlas('redArms', 'themes/classic/scenes/armoury/red/arms.png', 'themes/classic/scenes/armoury/arms.json');
     this.load.atlas('yellowArms', 'themes/classic/scenes/armoury/yellow/arms.png', 'themes/classic/scenes/armoury/arms.json');
-    // for (var i = 0; i < 200; i++) {
-    //     this.load.image('logooo'+i, 'themes/classic/scenes/loader/background.png');
-    // }
-    // this.load.image('IntroMp4', 'media/Intro.mp4');
+    this.load.multiatlas('armoryTorch', 'themes/classic/scenes/armoury/torch.json');
 
-// console.log(this.cache.json('assets'));
-
-    // this.loadAssets(this.load.json('assets'));
 
   }
 

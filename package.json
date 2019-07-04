@@ -3,19 +3,18 @@
   "version": "1.0.0",
   "description": "Open Lords of the Realm 2",
   "extends": "./node_modules/electron-webpack/tsconfig-base.json",
-  "main": "src/main.js",
+  "main": "src/main.ts",
   "scripts": {
     "build": "webpack src/www/index.js ",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open",
-    "postinstall": "electron-builder install-app-deps",
-    "electron": "electron src/main.js",
-    "server": "node src/main.js",
+    "postinstall": "install-app-deps",
+    "electron": "electron src/main.ts",
+    "server": "node src/main.ts",
     "lint": "eslint --ignore-path .gitignore ./src/*",
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder",
+    "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "keywords": [
@@ -25,6 +24,45 @@
   ],
   "author": "Steve Ayers",
   "license": "GPL-3.0-or-later",
+  "build": {
+    "appId": "yourappid",
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "src/www/favicon.ico"
+    }
+  },
+  "electronWebpack": {
+    "title": true,
+    "main": {
+      "sourceDirectory": "src"
+    },
+    "renderer": {
+      "sourceDirectory": null
+    }
+  },
   "dependencies": {
     "bufferutil": "^4.0.1",
     "express": "^4.17.1",
@@ -44,6 +82,7 @@
     "electron-builder": "^20.41.0",
     "electron-webpack": "^2.6.2",
     "eslint": "^5.16.0",
+    "mocka": "^0.0.1",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-middleware": "^3.7.0",

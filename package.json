@@ -2,36 +2,49 @@
   "name": "openlotr2",
   "version": "1.0.0",
   "description": "Open Lords of the Realm 2",
-  "main": "app.ts",
+  "extends": "./node_modules/electron-webpack/tsconfig-base.json",
+  "main": "src/main.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack src/www/index.js ",
     "start": "webpack --watch & live-server --port=8085",
     "postinstall": "electron-builder install-app-deps",
+    "electron": "electron src/main.js",
+    "server": "node src/main.js",
+    "lint": "eslint --ignore-path .gitignore ./src/*",
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "electron": "electron src/app.ts",
-    "server": "node src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "keywords": [
     "phaser",
-    "express"
+    "express",
+    "electron"
   ],
-  "author": "",
+  "author": "Steve Ayers",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "express": "^4.17.0",
+    "bufferutil": "^4.0.1",
+    "express": "^4.17.1",
     "io": "^1.0.0",
-    "socket.io": "^2.2.0"
+    "nedb": "^1.8.0",
+    "phaser": "^3.17.0",
+    "png-crop": "^0.0.2",
+    "socket.io": "^2.2.0",
+    "utf-8-validate": "^5.0.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "copy-webpack-plugin": "^5.0.3",
     "electron": "^5.0.2",
-    "electron-builder": "^20.40.2",
-    "electron-packager": "^13.1.1",
-    "live-server": "^1.2.1",
-    "phaser": "^3.17.0",
-    "ts-loader": "^6.0.1",
-    "typescript": "^3.4.5",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2"
+    "electron-builder": "^20.41.0",
+    "electron-webpack": "^2.6.2",
+    "eslint": "^5.16.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.4.1"
   }
 }

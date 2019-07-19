@@ -1,0 +1,570 @@
+{
+	"textures": [
+		{
+			"image": "themes/classic/scenes/armoury/armTorch.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 640,
+				"h": 480
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "torch_l_0.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 40,
+						"y": 19,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 118,
+						"y": 19,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 196,
+						"y": 19,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 274,
+						"y": 19,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 352,
+						"y": 19,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 430,
+						"y": 19,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 508,
+						"y": 19,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 40,
+						"y": 69,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 118,
+						"y": 69,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 196,
+						"y": 69,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 274,
+						"y": 69,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 352,
+						"y": 69,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_l_12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 430,
+						"y": 69,
+						"w": 77,
+						"h": 49
+					}
+				},
+
+				{
+					"filename": "torch_r_0.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 40,
+						"y": 180,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 118,
+						"y": 180,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 196,
+						"y": 180,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 274,
+						"y": 180,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 352,
+						"y": 180,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 430,
+						"y": 180,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 508,
+						"y": 180,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 40,
+						"y": 229,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 118,
+						"y": 229,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 196,
+						"y": 229,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 274,
+						"y": 229,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 352,
+						"y": 229,
+						"w": 77,
+						"h": 49
+					}
+				},
+				{
+					"filename": "torch_r_12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 77,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 77,
+						"h": 49
+					},
+					"frame": {
+						"x": 430,
+						"y": 229,
+						"w": 77,
+						"h": 49
+					}
+				}
+
+
+
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:4d068b3ab02a71c7c83bb6c1d88ea7bb:4c52dec3c8853ee73e77d9030764565c:331f995ad13042550e70cc531e4af5d3$"
+	}
+}

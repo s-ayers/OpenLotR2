@@ -1,8 +1,6 @@
- .. _realm:
-
-*****
+*********
 The Realm 
-*****
+*********
 
 When the game begins, your screen will display a view of the realm and many of its features.  The country is divided up into independent counties. At the start of the game each player controls a single county. County borders are marked by stone walls. Mountains, woods, and roads also appear on the main map.
 

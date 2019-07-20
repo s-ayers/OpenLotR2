@@ -7,19 +7,11 @@ Welcome to Open Lord of the Realm's documentation!
 ==================================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :caption: Contents:
 
-   game/Part-1
-   game/Part-2
-   game/Part-3
-   game/Part-4
-   game/Part-5
-   game/Part-6
-   game/Part-7
-   game/Part-8
-   game/Part-9
-   technical/file-types.rst
+   game/game
+   technical/technical.rst
    
 
 

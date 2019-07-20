@@ -1,5 +1,3 @@
- .. _introduction:
-
 ************
 Introduction
 ************
@@ -63,7 +61,7 @@ appear:
  * Select Custom Game to set up a custom game. There are many variations to choose from (see Custom Games, page 109 for more details).
  * Select Back to Start to begin again.
 
-.. image:: name-and-shield.png
+.. image:: ./name-and-shield.png
  :width: 600
 
 Whenever you begin a game you will be prompted to

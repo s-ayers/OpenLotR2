@@ -21,6 +21,7 @@ project = 'Open Lord of the Realm'
 copyright = '2019, Steven Ayers'
 author = 'Steven Ayers'
 
+master_doc = 'index'
 
 # -- General configuration ---------------------------------------------------
 

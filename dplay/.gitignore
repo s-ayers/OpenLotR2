@@ -27,5 +27,7 @@ dist/*
 !dist/.gitkeep
 release-builds/*
 !release-builds/.gitkeep
-doc/_build/*
-src/www/England.map.png
+
+coverage/*
+.nyc_output/*
+yarn-error.log

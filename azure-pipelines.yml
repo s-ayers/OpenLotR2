@@ -24,8 +24,10 @@ steps:
     source activate qcodes
     cd doc
     ls -lsa
-    export SPHINXOPTS=-W -v
-    xvfb-run --server-args="-screen 0 1024x768x24" make singlehtml
+    make singlehtml
+    #export SPHINXOPTS=-W -v
+    #xvfb-run --server-args="-screen 0 1024x768x24" make singlehtml
+    
   displayName: "Build docs on Linux"
   condition: and(succeededOrFailed(), eq( variables['Agent.OS'], 'Linux' ))
 

@@ -1,0 +1,33 @@
+{
+  "productName": "OpenLotR2",
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.code-workspace",
+    "!LICENSE.md",
+    "!package-lock.json",
+    "!src/",
+    "!e2e/",
+    "!hooks/",
+    "!angular.json",
+    "!_config.yml",
+    "!karma.conf.js",
+    "!tsconfig.json",
+    "!tslint.json"
+  ],
+  "win": {
+    "icon": "dist/static/favicon.ico",
+    "target": ["portable"]
+  },
+  "mac": {
+    "icon": "dist/static",
+    "target": ["dmg"]
+  },
+  "linux": {
+    "icon": "dist/static",
+    "target": ["AppImage"]
+  }
+}

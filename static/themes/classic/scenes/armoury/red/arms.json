@@ -1,0 +1,201 @@
+{"frames": [
+
+{
+	"filename": "peasant",
+	"frame": {"x":8,"y":362,"w":76,"h":84},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":84},
+	"sourceSize": {"w":76,"h":84},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "crossbowman",
+	"frame": {"x":88,"y":362,"w":76,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":84},
+	"sourceSize": {"w":76,"h":84},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "maceman",
+	"frame": {"x":168,"y":362,"w":76,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":84},
+	"sourceSize": {"w":76,"h":84},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "pikeman",
+	"frame": {"x":247,"y":362,"w":76,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":84},
+	"sourceSize": {"w":76,"h":84},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "horseman",
+	"frame": {"x":326,"y":362,"w":76,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":84},
+	"sourceSize": {"w":76,"h":84},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "bowman",
+	"frame": {"x":406,"y":362,"w":76,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":84},
+	"sourceSize": {"w":76,"h":84},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "swordman",
+	"frame": {"x":485,"y":362,"w":76,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":84},
+	"sourceSize": {"w":76,"h":84},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "crossbow",
+	"frame": {"x":22,"y":17,"w":97,"h":178},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":97,"h":178},
+	"sourceSize": {"w":97,"h":178},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "mace",
+	"frame": {"x":152,"y":16,"w":56,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":82},
+	"sourceSize": {"w":56,"h":82},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "pike",
+	"frame": {"x":514,"y":18,"w":90,"h":243},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":243},
+	"sourceSize": {"w":90,"h":243},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "mail",
+	"frame": {"x":428,"y":17,"w":64,"h":171},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":171},
+	"sourceSize": {"w":64,"h":171},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "bow",
+	"frame": {"x":152,"y":112,"w":124,"h":95},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":124,"h":95},
+	"sourceSize": {"w":124,"h":95},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "sword",
+	"frame": {"x":311,"y":18,"w":86,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":86,"h":98},
+	"sourceSize": {"w":86,"h":98},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "peasantIcon",
+	"frame": {"x":13,"y":240,"w":26,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":26,"h":24},
+	"sourceSize": {"w":26,"h":24},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "crossbowIcon",
+	"frame": {"x":45,"y":240,"w":28,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":24},
+	"sourceSize": {"w":28,"h":24},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "maceIcon",
+	"frame": {"x":76,"y":239,"w":27,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":27,"h":24},
+	"sourceSize": {"w":27,"h":24},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "swordIcon",
+	"frame": {"x":105,"y":239,"w":28,"h":25},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":25},
+	"sourceSize": {"w":28,"h":25},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "pikeIcon",
+	"frame": {"x":138,"y":239,"w":28,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":24},
+	"sourceSize": {"w":28,"h":24},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "bowIcon",
+	"frame": {"x":171,"y":240,"w":27,"h":23},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":27,"h":23},
+	"sourceSize": {"w":27,"h":23},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "mailIcon",
+	"frame": {"x":205,"y":241,"w":25,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":24},
+	"sourceSize": {"w":25,"h":24},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "actions",
+	"frame": {"x":320,"y":200,"w":320,"h":20066},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":320,"y":200,"w":320,"h":200},
+	"sourceSize": {"w":320,"h":200},
+	"pivot": {"x":0,"y":0}
+}
+],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "panels.png",
+	"format": "RGBA8888",
+	"size": {"w":640,"h":480},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:dd38a603015508376adf694b073b3a9a:d212aa7d5ef3a912a7f699c3795a8933:78287ab19df36dadeb0655d9b198cf32$"
+}}

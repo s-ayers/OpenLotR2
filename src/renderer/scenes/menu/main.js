@@ -1,0 +1,221 @@
+export class MainMenu extends Phaser.Scene {
+
+    constructor() {
+        super({ key: 'MainMenu' });
+    }
+
+    preload() {
+        this.lineBottomColor = '0xB8B8B8';
+        this.lineTopColor = '0x4C4C4C';
+
+    }
+
+    create() {
+        this.add.image(0, 0, 'MainBackground').setOrigin(0);
+        this.panel = this.add.tileSprite(180, 16, 0, 0, 'Panels2Atlas', 'stonePanel').setOrigin(0);
+
+        this.largeFont = {
+            font: '32px Gothic',
+            stroke: '#000000',
+            strokeThickness: 0,
+            fill: '#000000',
+            align: 'center'
+        };
+        this.smallFont = {
+            font: '20px Gothic',
+            stroke: '#000000',
+            strokeThickness: 0,
+            fill: '#000000',
+            align: 'center'
+        };
+
+        this.SingleOrMultiPlayer();
+        // this.SelectShield();
+
+
+    }
+
+    SingleOrMultiPlayer() {
+        this.panel.displayHeight = 229;
+        this.panel.displayWidth = 312;
+        this.panel.x = 164;
+        this.panel.y = 16;
+
+        var localText = [];
+        var that = this;
+
+        // Single Player box
+        this.drawBox(224, 92, localText);
+        // localText[localText.length] = this.add.line(0, 0, 226, 92, 415, 92, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 415, 93, 415, 114, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 224, 92, 224, 115, this.lineBottomColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 224, 115, 415, 115, this.lineBottomColor).setOrigin(0);
+
+        //Multi player
+        this.drawBox(224, 128, localText);
+        // localText[localText.length] = this.add.line(0, 0, 226, 128, 415, 128, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 415, 128, 415, 150, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 224, 128, 224, 151, this.lineBottomColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 224, 151, 415, 151, this.lineBottomColor).setOrigin(0);
+
+
+        // Exit Game
+        this.drawBox(224, 199, localText);
+        // localText[localText.length] = this.add.line(0, 0, 226, 199, 415, 199, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 415, 199, 415, 222, this.lineTopColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 225, 199, 225, 223, this.lineBottomColor).setOrigin(0);
+        // localText[localText.length] = this.add.line(0, 0, 225, 223, 415, 223, this.lineBottomColor).setOrigin(0);
+
+
+        localText[localText.length] = this.add.text(164 + 28, 29, 'Lords of the Realm 2', this.largeFont).setOrigin(0);
+        localText[localText.length] = this.add.text(164 + 72, 58, '"The seige is on"', this.smallFont).setOrigin(0);
+
+        localText[localText.length] = this.add.text(264, 93, 'Single Player', this.smallFont).setInteractive().on('pointerdown', function (pointer, localX, localY, event) {
+            for (var x in localText) {
+                localText[x].destroy();
+            }
+            that.scene.start('SinglePlayerMenu');
+        });
+
+    }
+
+    // localText[localText.length] = this.add.line(0, 0, 226, 92, 415, 92, this.lineTopColor).setOrigin(0);
+    // localText[localText.length] = this.add.line(0, 0, 415, 93, 415, 114, this.lineTopColor).setOrigin(0);
+    // localText[localText.length] = this.add.line(0, 0, 225, 92, 225, 115, this.lineBottomColor).setOrigin(0);
+    // localText[localText.length] = this.add.line(0, 0, 225, 115, 415, 115, this.lineBottomColor).setOrigin(0);
+
+
+    drawBox(x, y, local) {
+        local[local.length] = this.add.line(0, 0, x + 1, y, x + 191, y, this.lineTopColor).setOrigin(0);
+        local[local.length] = this.add.line(0, 0, x + 191, y + 1, x + 191, y + 23, this.lineTopColor).setOrigin(0);
+        local[local.length] = this.add.line(0, 0, x, y, x, y + 24, this.lineBottomColor).setOrigin(0);
+        local[local.length] = this.add.line(0, 0, x, y + 24, x + 191, y + 24, this.lineBottomColor).setOrigin(0);
+    }
+
+    SelectShield() {
+        // this.panel.angle = 90;
+        this.panel.x = 84;
+        this.panel.y = 16;
+        this.panel.displayHeight = 250;
+        this.panel.displayWidth = 490;
+
+        var localText = [],
+            shields = {},
+            that = this;
+
+        // Original 
+        this.drawBox(110, 215, localText);
+        // Seige
+        this.drawBox(336, 215, localText);
+
+        localText[localText.length] = this.add.text(140, 40, 'Choose your title and shield.', this.largeFont).setOrigin(0);
+
+        localText[localText.length] = this.add.text(185, 215, 'Back', this.smallFont).setOrigin(0).
+            setInteractive().on('pointerdown', function (pointer, localX, localY, event) {
+                for (var x in localText) {
+                    localText[x].destroy();
+                }
+                that.SelectShield();
+            });
+
+        localText[localText.length] = this.add.text(395, 215, 'Continue', this.smallFont).setOrigin(0).
+            setInteractive().on('pointerdown', function (pointer, localX, localY, event) {
+                for (var x in localText) {
+                    localText[x].destroy();
+                }
+                that.scene.start('MainScene');
+            });
+
+
+        this.add.tileSprite(320, 100, 0, 0, 'Panels2Atlas', 'stoneInput');
+
+        shields.red = this.add.tileSprite(150, 140 + 30, 0, 0, 'Panels2Atlas', 'redActive');
+        shields.yellow = this.add.tileSprite(235, 140 + 30, 0, 0, 'Panels2Atlas', 'yellowActive');
+        shields.black = this.add.tileSprite(288 + 30, 140 + 30, 0, 0, 'Panels2Atlas', 'blackActive');
+        shields.purple = this.add.tileSprite(288 + 120, 140 + 30, 0, 0, 'Panels2Atlas', 'purpleActive');
+        shields.blue = this.add.tileSprite(288 + 210, 140 + 30, 0, 0, 'Panels2Atlas', 'blueActive');
+    }
+
+    OriginalOrSeige() {
+
+        this.panel.x = 68;
+        this.panel.y = 56;
+        this.panel.displayHeight = 117;
+        this.panel.displayWidth = 504;
+
+        var localText = [],
+            that = this;
+
+        // Original 
+        this.drawBox(110, 116, localText);
+        // Seige
+        this.drawBox(366, 116, localText);
+
+
+        localText[localText.length] = this.add.text(98, 56 + 10, 'Expansion pack installed, choose:-', this.largeFont).setOrigin(0);
+
+        localText[localText.length] = this.add.text(110, 120, 'Orginal campaign', this.smallFont).setOrigin(0).
+            setInteractive().on('pointerdown', function (pointer, localX, localY, event) {
+                for (var x in localText) {
+                    localText[x].destroy();
+                }
+                that.SelectShield();
+            });;
+        localText[localText.length] = this.add.text(365, 120, 'The new campaign', this.smallFont).setOrigin(0).
+            setInteractive().on('pointerdown', function (pointer, localX, localY, event) {
+                for (var x in localText) {
+                    localText[x].destroy();
+                }
+                that.SelectShield();
+            });;
+    }
+
+    SinglePlayer() {
+
+        this.panel.x = 180;
+        this.panel.y = 26;
+        this.panel.displayHeight = 277;
+        this.panel.displayWidth = 280;
+
+        var localText = [],
+            that = this;
+
+        // Play now
+        this.drawBox(224, 92, localText);
+        //Load a game
+        this.drawBox(224, 127, localText);
+        // Skirmish
+        this.drawBox(224, 163, localText);
+        // Customer game
+        this.drawBox(224, 199, localText);
+        // back
+        this.drawBox(224, 235, localText);
+
+
+        localText[localText.length] = this.add.text(250, 45, 'Your Options', this.largeFont);
+
+        localText[localText.length] = this.add.text(273, 92, 'Play Now!', this.smallFont).
+            setInteractive().on('pointerdown', function (pointer, localX, localY, event) {
+                for (var x in localText) {
+                    localText[x].destroy();
+                }
+                that.OriginalOrSeige();
+            });
+
+        localText[localText.length] = this.add.text(266, 127, 'Load a game', this.smallFont);
+
+        localText[localText.length] = this.add.text(280, 163, 'Skirmish!', this.smallFont);
+
+        localText[localText.length] = this.add.text(264, 199, 'Custom game', this.smallFont).setInteractive().on('pointerdown', function (pointer, localX, localY, event) {
+            this.scene.scene.start('CustomGame');
+        });
+
+
+
+        localText[localText.length] = this.add.text(295, 235, 'Back', this.smallFont).style.setAlign('center');
+    }
+
+    MultiPlayer() {
+
+    }
+}

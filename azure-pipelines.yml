@@ -22,9 +22,8 @@ steps:
 
 - script: |
     source activate qcodes
-    pwd
-    ls -lsa
-    cd docs
+
+    cd doc
     
     export SPHINXOPTS=-W -v
     xvfb-run --server-args="-screen 0 1024x768x24" make htmlapi

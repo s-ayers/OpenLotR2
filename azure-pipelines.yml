@@ -20,6 +20,14 @@ steps:
     python -m pip install --upgrade pip setuptools wheel sphinx
   displayName: 'Sphinx install'
 
+- script: |
+    source activate qcodes
+    cd docs
+    export SPHINXOPTS=-W -v
+    xvfb-run --server-args="-screen 0 1024x768x24" make htmlapi
+  displayName: "Build docs on Linux"
+  condition: and(succeededOrFailed(), eq( variables['Agent.OS'], 'Linux' ))
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'

@@ -1,0 +1,48 @@
+{"frames": [
+
+{
+	"filename": "castle1",
+	"frame": {"x":0,"y":0,"w":320,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":320,"h":200},
+	"sourceSize": {"w":320,"h":200},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "castle3",
+	"frame": {"x":320,"y":0,"w":320,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":320,"h":200},
+	"sourceSize": {"w":320,"h":200},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "castle4",
+	"frame": {"x":0,"y":200,"w":320,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":320,"h":200},
+	"sourceSize": {"w":320,"h":200},
+	"pivot": {"x":0,"y":0}
+},
+{
+	"filename": "castle5",
+	"frame": {"x":320,"y":200,"w":320,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":320,"y":200,"w":320,"h":200},
+	"sourceSize": {"w":320,"h":200},
+	"pivot": {"x":0,"y":0}
+}
+],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "pics.png",
+	"format": "RGBA8888",
+	"size": {"w":640,"h":480},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:dd38a603015508376adf694b073b3a9a:d212aa7d5ef3a912a7f699c3795a8933:78287ab19df36dadeb0655d9b198cf32$"
+}}

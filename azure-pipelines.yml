@@ -1,0 +1,42 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+    architecture: 'x64'
+    
+- script: |
+    python -m pip install --upgrade pip setuptools wheel sphinx sphinx-rtd-theme
+  displayName: 'Sphinx install'
+
+- script: |
+    source activate qcodes
+    cd doc
+    ls -lsa
+    make singlehtml
+    #export SPHINXOPTS=-W -v
+    #xvfb-run --server-args="-screen 0 1024x768x24" make singlehtml
+    
+  displayName: "Build docs on Linux"
+  condition: and(succeededOrFailed(), eq( variables['Agent.OS'], 'Linux' ))
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'

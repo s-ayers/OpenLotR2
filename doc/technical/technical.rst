@@ -1,8 +1,7 @@
-*********
+#########
 Technical
-*********
+#########
 
-Coolio llc
 
 .. toctree::
    :maxdepth: 3

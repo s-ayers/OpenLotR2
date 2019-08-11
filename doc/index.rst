@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Open Lords of the Realm 2's documentation!
-=====================================================
+==========================================
+Open Lords of the Realm 2's Documentation!
+==========================================
 
 .. toctree::
    :maxdepth: 4

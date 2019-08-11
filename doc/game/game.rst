@@ -7,9 +7,9 @@ Game
    :maxdepth: 3
    :caption: Contents:
 
-   Part-1
-   Part-2
-   Part-3
+   part-1/Part-1
+   part-2/Part-2
+   part-3/Part-3
    Part-4
    Part-5
    Part-6

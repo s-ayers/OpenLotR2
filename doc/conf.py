@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Open Lord of the Realm'
+project = 'Open Lords of the Realm 2'
 copyright = '2019, Steven Ayers'
 author = 'Steven Ayers'
 

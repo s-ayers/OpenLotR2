@@ -44,6 +44,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "bufferutil": "^4.0.1",
+    "dplay": "file:.\\dplay\\",
     "electron-serve": "^0.3.0",
     "electron-settings": "^3.2.0",
     "express": "^4.17.1",

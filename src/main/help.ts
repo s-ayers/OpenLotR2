@@ -1,8 +1,10 @@
 import { app, BrowserWindow, remote, shell, screen } from "electron";
 import { statSync } from "fs";
 import * as path from "path";
+const serve = require("electron-serve");
+
+const loadURL = serve({ directory: "renderer" });
 declare const __static: string;
-const server = require("electron-serve");
 
 interface LicenseEntry {
   type: string;
@@ -159,7 +161,7 @@ export default function openHelpWindow(
   }
 
   let base_path = path.join(__static, "docs");
-
+  // const loadURL = serve({ directory: "static/docs" });
   const index_html = "file://" + path.join(base_path, "index.html");
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
@@ -174,15 +176,16 @@ export default function openHelpWindow(
       webPreferences: {
         // For security reasons, nodeIntegration is no longer true by default when using Electron v5 or later
         // nodeIntegration can be safely enabled as long as the window source is not remote
-        nodeIntegration: true,
-        webSecurity: false
+        nodeIntegration: false,
+        webSecurity: true
       }
     },
     info.win_options || {}
   );
 
   window = new (BrowserWindow || remote.BrowserWindow)(options);
-  //   window.webContents.openDevTools();
+  loadURL(window);
+  window.webContents.openDevTools();
   window.once("closed", () => {
     window = null;
   });

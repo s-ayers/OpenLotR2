@@ -1,4 +1,2 @@
-======
-(.pl8)
-======
 
+.. include:: ../../../node_modules/pl8image/docs/.pl8.rst

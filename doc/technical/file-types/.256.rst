@@ -1,4 +1,1 @@
-======
-(.256)
-======
-
+.. include:: ../../../node_modules/pl8image/docs/.256.rst

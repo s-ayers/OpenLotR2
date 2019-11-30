@@ -51,6 +51,7 @@
     "io": "^1.0.0",
     "nedb": "^1.8.0",
     "phaser": "^3.18.1",
+    "pl8image": "github:s-ayers/pl8image",
     "png-crop": "^0.0.2",
     "socket.io": "^2.2.0",
     "source-map-support": "^0.5.13",

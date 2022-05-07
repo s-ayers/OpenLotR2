@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Direct Play middleware.",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha -r ts-node/register src/**/*.test.ts"
+    "test": "nyc --reporter=html --reporter=text mocha -r ts-node/register src/**/*.test.ts",
+    "mocha": "ts-mocha -p tsconfig.json src/**/*.test.ts"
   },
   "nyc": {
     "extension": [
@@ -25,7 +26,8 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "binary-parser": "^2.0.2",
-    "bufferutil": "^4.0.1"
+    "bufferutil": "^4.0.1",
+    "mock-udp": "^0.1.1"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.3.3",

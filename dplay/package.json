@@ -24,6 +24,7 @@
   "author": "Steve Ayers",
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "binary-parser": "^2.0.2",
     "bufferutil": "^4.0.1"
   },
   "devDependencies": {

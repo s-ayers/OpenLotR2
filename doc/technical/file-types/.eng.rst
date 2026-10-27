@@ -1,4 +1,47 @@
-======
-(.eng)
-======
+====
+.eng
+====
 
+Text resources come in two flavours: one offset-table string file and
+several plain-text files.
+
+Offset-table string file (L2.eng)
+=================================
+
++----------+----------+---------------------------------+
+| Offset   | Size (B) | Field                           |
++==========+==========+=================================+
+| 0        | 8        | Magic: ``Textfile``             |
++----------+----------+---------------------------------+
+| 8        | 4        | Reserved, observed as zero      |
++----------+----------+---------------------------------+
+| 12       | var      | Offset table (uint32 LE each)   |
++----------+----------+---------------------------------+
+
+The first table entry (at offset 12) holds the offset of the first
+string, which also equals the end of the table, so the entry count is
+
+``(first_offset − 12) / 4``
+
+In the English build: first offset = 1280 → **317 strings**
+(``12 + 317 × 4 = 1280``). Offsets are ascending. Each string runs
+from its offset to the next offset (final string: end of file),
+**NUL-terminated**, encoded **Windows-1252**.
+
+Plain-text files
+================
+
++--------------+--------+---------+------------------+
+| File         | Lines  | Chars   | Encoding         |
++==============+========+=========+==================+
+| TROOPS.ENG   | 627    | 22,764  | Win-1252, CRLF   |
++--------------+--------+---------+------------------+
+| TROOPS2.ENG  | 627    | 22,764  | Win-1252, CRLF   |
++--------------+--------+---------+------------------+
+| TROOPS3.ENG  | 627    | 22,764  | Win-1252, CRLF   |
++--------------+--------+---------+------------------+
+| BATTLES.ENG  | 173    | 7,150   | Win-1252, CRLF   |
++--------------+--------+---------+------------------+
+
+The three TROOPS files share structure but differ in content (distinct
+checksums).
